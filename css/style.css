@@ -1,0 +1,787 @@
+/*---------------------------------------------
+
+1. BLACK: #0A0A0A;
+2. DARK BLUE: #1E325C;
+4. YELLOW: #FDB035;
+5. GREY: #E0E0E0;
+6. WHITE: #F5F5F5;
+
+---------------------------------------------*/
+
+@font-face {
+  font-family: 'Nunito';
+  src: url(Nunito-Bold.ttf);
+}
+
+* {
+	font-family: 'Nunito', sans-serif;
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	color: #141414;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	overflow-x: hidden;
+}
+
+p {
+	line-height: 25px;
+}
+
+/*-------------------------------------------------------------------------------------
+									PRELOADER
+--------------------------------------------------------------------------------------*/
+
+.load {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9998;
+	width: 100vw;
+	height: 100vh;
+	background-color: #E0E0E0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.load .line {
+	width: 200px;
+	height: 200px;
+	border-top: 3px solid #1E325C;
+	border-right: 3px solid #E0E0E0;
+	border-left: 3px solid #E0E0E0;
+	border-bottom: 3px solid #E0E0E0;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	animation: spin linear 2s infinite;
+}
+
+.load .line-blue {
+	width: 150px;
+	height: 150px;
+	border-top: 3px solid #FDB035;
+	border-right: 3px solid #E0E0E0;
+	border-left: 3px solid #E0E0E0;
+	border-bottom: 3px solid #E0E0E0;
+	border-radius: 50%;
+	animation: spin linear 1.5s infinite;
+}
+
+ @keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+
+    100% {
+      -webkit-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+
+/*-------------------------------------------------------------------------------------
+									NAVIGATION
+--------------------------------------------------------------------------------------*/
+
+
+nav {
+	background-color: #E0E0E0;
+	position: fixed;
+	top:0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	padding-right: 20px;
+}
+
+.nav-menu {
+	display: flex;
+	justify-content: flex-end;
+	list-style: none;
+}
+
+.nav-menu li {
+	padding: 20px 20px;
+}
+
+.nav-menu li a {
+	font-weight: 700;
+	font-size: 18px;
+	transition: all .2s ease-in-out;
+}
+
+.nav-menu li a:hover {
+	font-weight: 700;
+	font-size: 18px;
+	color: #1E325C;
+	transition: all .2s ease-in-out;
+}
+
+.open {
+	float: right;
+	display: none;
+	cursor: pointer;
+}
+
+nav .open i {
+	font-size: 25px;
+	padding: 20px 20px;
+}
+
+.close {
+	display: none;
+	font-size: 25px;
+	padding: 20px 20px;
+	float: right;
+	cursor: pointer;
+}
+
+.toggle-nav {
+	position: fixed;
+	top: 64px;
+	right: -300px;
+	width: 300px;
+	height: 100vh;
+	z-index: 999;
+	display: none;
+	background-color: #E0E0E0;
+	align-items: center;
+	justify-content: center;
+}
+
+.toggle-nav ul {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.toggle-nav ul li {
+	padding: 30px 0;
+}
+
+.nav-open {
+	display: flex;
+	animation: navAnim .5s forwards linear;
+}
+
+@keyframes navAnim {
+	from {
+		right: -300px;
+	}
+	to {
+		right: 0;
+	}
+}
+
+/*-------------------------------------------------------------------------------------
+									LANDING
+--------------------------------------------------------------------------------------*/
+
+.landing {
+	height: 120vh;
+	background-image: url(images/landing-image.jpg);
+	background-size: cover;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+}
+
+.landing-text h1{
+	font-size: 50px;
+	margin-bottom: 20px;
+}
+
+.landing-text h1 span {
+	color: #FDB035;
+}
+
+.landing-text h2 {
+	font-size: 20px;
+}
+
+.landing-text {
+	text-align:center;
+	margin-top: 15vh;
+}
+
+.banner {
+	width: 100%;
+	height: 70px;
+	background-image: url(images/banner-shape.png);
+	background-size: cover;
+}
+
+.button {
+	color: #1E325C;
+	border:2px solid #1E325C;
+	padding: 10px;
+	border-radius: 25px;
+	transition: all .2s ease-in-out;
+}
+
+.button:hover {
+	color: #F5F5F5;
+	background-color:#1E325C;
+	transition: all .2s ease-in-out;
+	padding: 10px 20px; 
+}
+
+/*-------------------------------------------------------------------------------------
+									ABOUT
+--------------------------------------------------------------------------------------*/
+
+#about-section {
+	background-color: #F5F5F5;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 60px 10%;
+}
+
+.about-img {
+	width: 400px;
+	height: 400px;
+	border-radius: 50%;
+	background-image: url(images/about-img.jpg);
+	background-size: cover;
+	margin-right: 10%;
+	/*-webkit-box-shadow: -9px 9px 0px 2px rgba(55,91,169,1);
+	-moz-box-shadow: -9px 9px 0px 2px rgba(55,91,169,1);
+	box-shadow: -9px 9px 0px 2px rgba(55,91,169,1);*/
+}
+
+.about-text {
+	width: 40%;
+}
+
+.about-text h2 {
+	font-size: 30px;
+	margin-bottom: 10px;
+	color: #1E325C;
+}
+
+.about-text p {
+	line-height: 25px;
+}
+
+.heading-underline {
+	width: 70px;
+	height: 3px;
+	background-color: #FDB035;
+	margin-bottom: 20px;
+}
+
+/*-------------------------------------------------------------------------------------
+									VACATION
+--------------------------------------------------------------------------------------*/
+
+#vacation {
+	background-image: url(images/vacation.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	padding: 100px 10%;
+}
+
+#vacation h2 {
+	color: #F5F5F5;
+	text-transform: uppercase;
+	font-size: 30px;
+}
+
+#vacation h2 span {
+	color: #FDB035;
+}
+
+#vacation .last-heading {
+	margin-bottom: 10px;
+}
+
+#vacation p {
+	line-height: 25px;
+	color:#E0E0E0; 
+}
+
+/*-------------------------------------------------------------------------------------
+									SERVICES
+--------------------------------------------------------------------------------------*/
+
+#services {
+	background-color: #E0E0E0;
+	padding: 60px 10%;
+}
+
+#services h2 {
+	font-size: 30px;
+	margin-bottom: 10px;
+	color: #1E325C;
+	text-align: center;
+}
+
+#services .heading-underline {
+	margin: 0 auto;
+	margin-bottom: 20px;
+}
+
+.service-container {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 30px;
+}
+
+.card {
+	width: 25%;
+	text-align: center;
+}
+
+.card img {
+	width: 250px;
+	height: 250px;
+	border-radius: 50%;
+}
+
+.card h3 {
+	margin: 20px 0 10px 0;
+	color: #1E325C;
+}
+
+.card p {
+	color:#0A0A0A;
+}
+
+.animate__animated.animate__fadeInUp.slow {
+	animation-delay: 0.2s;
+}
+
+.animate__animated.animate__fadeInUp.delay {
+	animation-delay: 0.4s;
+}
+
+.animate__animated.animate__fadeInUp.delay2 {
+	animation-delay: 0.6s;
+}
+
+/*-------------------------------------------------------------------------------------
+									BIRTHDAY
+--------------------------------------------------------------------------------------*/
+
+#birthday {
+	width: 100%;
+	height: 400px;
+	background-image: url(images/birthday.jpg);
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	align-items: center;
+}
+
+.birthday-text h2 {
+	color: #1E325C;
+	text-transform: uppercase;
+	font-size: 30px;
+	margin-bottom: 10px;
+}
+
+.birthday-text {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 100px;
+	padding: 0 20%;
+	text-align:center;
+}
+
+.birthday-banner {
+	width: 100%;
+	height: 75px;
+	background-image: url(images/blue-banner.png);
+	background-size: cover;
+	background-position: top;
+}
+
+/*-------------------------------------------------------------------------------------
+									CONTACT
+--------------------------------------------------------------------------------------*/
+
+#contact {
+	background-color: #1E325C;
+	padding: 50px 10%;
+}
+
+#contact h2 {
+	font-size: 30px;
+	margin-bottom: 10px;
+	color: #F5F5F5;
+	text-align: center;
+}
+
+#contact .heading-underline {
+	margin: 0 auto;
+	margin-bottom: 20px;
+}
+
+.contact-container {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 30px;
+}
+
+.contact-list ul {
+	list-style: none;
+}
+
+.contact-list ul li i {
+	font-size: 20px;
+	margin-right: 10px;
+	color: #FDB035;
+}
+
+.contact-list ul li {
+	display: flex;
+	align-items: center;
+	margin: 10px 0;
+	color: #F5F5F5;
+}
+
+.contact-form {
+	width: 40%;
+}
+
+.contact-form input, textarea {
+	display: block;
+	width: 90%;
+	margin: 10px 0;
+	height: 25px;
+	border-radius: 15px;
+	padding: 5px 10px;
+	background-color: #F5F5F5;
+}
+
+input:focus {
+	border:2px solid #FDB035;
+}
+
+.contact-form textarea {
+	height: 50px;
+	margin-bottom: 20px;
+}
+
+.submit-button {
+	margin-top: 30px;
+	padding: 5px 10px;
+	color: #F5F5F5;
+	border:2px solid #FDB035;
+	border-radius: 25px;
+	transition: all .2s ease-in-out;
+}
+
+.submit-button:hover {
+	background-color: #FDB035;
+	transition: all .2s ease-in-out;
+	padding: 5px 15px;
+}
+
+/*-------------------------------------------------------------------------------------
+									OFFERS
+--------------------------------------------------------------------------------------*/
+
+#offers {
+	padding: 100px 10%;
+	text-align: center;
+	background-color: #F5F5F5;
+}
+
+#offers .heading-underline {
+	margin: 0 auto;
+}
+
+#offers h2 {
+	color: #1E325C;
+	text-transform: uppercase;
+	font-size: 30px;
+}
+
+.offers-container {
+	width: 100%;
+	height: 60vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 50px;
+}
+
+.offer-card {
+	width: 300px;
+	height: 400px;
+	background-color: red;
+	border-radius: 25px;
+	background-color: #E0E0E0;
+	text-align:left;
+}
+
+.offer-card h3 {
+	margin: 30px 0 0 20px;
+	color: #FDB035;
+}
+
+.yellow-card {
+	transform: scale(1.1);
+	background-color: #FDB035;
+}
+
+.yellow-card h3 {
+	color: #F5F5F5;
+}
+
+.offer-card h4 {
+	font-size: 35px;
+	margin-left: 20px;
+	color: #1E325C;
+}
+
+.last h3, .last h4{
+	margin-left: 30px;
+} 
+
+.offer-card i {
+	font-size: 40px;
+	margin-left: 20px;
+	color: #1E325C;
+}
+
+.last i {
+	margin-left: 30px;
+}
+
+.offer-card ul {
+	list-style: none;
+	margin-left: 20px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.offer-card ul li {
+	padding: 10px 0 0 0;
+}
+
+.offer-card ul li i {
+	font-size: 15px;
+}
+
+.offer-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.last ul {
+	margin-left: 30px;
+}
+
+.offer-card h4 span {
+	color: #FDB035;
+}
+
+.yellow-card h4 span {
+	color: #F5F5F5;
+}
+
+/*-------------------------------------------------------------------------------------
+									RESPONSIVE DESIGN
+--------------------------------------------------------------------------------------*/
+
+@media all and (max-width: 1000px) {
+
+	.landing {
+		background-position: center;
+	}
+
+	.about-text {
+		width: 35%;
+	}
+
+	.service-container {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.card {
+		width: 50%;
+		margin-bottom: 50px;
+	}
+
+	.card img {
+		width: 300px;
+		height: 300px;
+	}
+
+}
+
+@media all and (max-width: 900px) {
+
+	.landing {
+		background-position: center;
+	}
+
+	.about-text {
+		width: 30%;
+	}
+
+	.about-img {
+		width: 350px;
+		height: 350px;
+		margin-right: 5%;
+	}
+
+	#about-section {
+		justify-content: space-around;
+	}
+
+}
+
+@media all and (max-width: 850px) {
+
+	#about-section {
+		flex-direction: column;
+	}
+
+	.about-img {
+		margin-right: 0;
+		margin-bottom: 30px;
+	}
+
+	.about-text {
+		width: 60%;
+		text-align: center;
+	}
+
+	.about-text .heading-underline {
+		margin: 0 auto;
+		margin-bottom: 20px;
+	}
+
+	#vacation {
+		padding: 80px 5%;
+	}
+
+	#offers {
+		height: auto;
+	}
+
+	.offers-container {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+	}
+
+}
+
+@media all and (max-width: 700px) {
+
+	.card {
+		width: 80%;
+		margin-bottom: 50px;
+	}
+
+	.card img {
+		width: 200px;
+		height: 200px;
+	}
+
+	.contact-container {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.contact-form {
+		width: 100%;
+	}
+		
+}
+
+@media all and (max-width: 600px) {
+
+	nav {
+		padding-right: 5px;
+	}
+
+	.open {
+		display: block;
+		padding: 0px 5px;
+	}
+
+	.nav-menu {
+		display: none;
+	}
+
+	.banner {
+		background-position: center;
+	}
+
+	.about-text {
+		width: 80%;
+	}
+
+	#vacation {
+		background-position: center;
+		padding: 50px 5%;
+	}
+
+}
+
+@media all and (max-width: 450px) {
+
+	.landing-text h1 {
+		font-size: 40px;
+	}
+
+	.about-img {
+		width: 300px;
+		height: 300px;
+	}
+
+	.about-text {
+		width: 90%;
+	}
+
+	#vacation h2 {
+		font-size: 25px;
+	}
+
+}
+
+@media all and (max-width: 350px) {
+
+	.landing-text h1 {
+		font-size: 35px;
+	}
+
+	.about-img {
+		width: 250px;
+		height: 250px;
+	}
+
+	.about-text {
+		width: 95%;
+	}
+
+	#vacation h2 {
+		font-size: 20px;
+	}
+
+}
